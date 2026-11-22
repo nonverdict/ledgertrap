@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ledgertrap"
+version = "0.2.0"
+description = "Reproducible RL environment for training financial-audit agents (Genesis Hackathon 2026, FinTech)"
+readme = "README.md"
+license = {text = "Apache-2.0"}
+requires-python = ">=3.11"
+dependencies = []  # standard library only
+
+[project.scripts]
+ledgertrap = "ledgertrap.cli:main"
+
+[tool.setuptools]
+packages = ["ledgertrap", "ledgertrap.errors", "ledgertrap.grader", "ledgertrap.policies"]
