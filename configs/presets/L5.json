@@ -1,0 +1,9 @@
+{
+  "config_version": "1.0",
+  "name": "L5-full-stress",
+  "company": {"foreign_currencies": ["USD", "EUR", "CNY", "RUB", "GBP", "JPY", "KWD"], "n_foreign_currencies": [3, 3],
+              "doc_offset_same_prob": 0.4},
+  "size": {"ledger_rows": [1800, 2000], "documents": [170, 200], "customers": [25, 60]},
+  "errors": {"mode": "random", "clean_probability": 0.2, "count": [6, 12], "interacting": {"C1": 0.6, "C2": 0.6}},
+  "traps": {"rate": 1.0}
+}

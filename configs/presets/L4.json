@@ -1,0 +1,8 @@
+{
+  "config_version": "1.0",
+  "name": "L4-multicurrency-timezones-quarter",
+  "company": {"n_foreign_currencies": [2, 3], "period_kind": "quarter", "doc_offset_same_prob": 0.5},
+  "size": {"ledger_rows": [600, 1500], "documents": [80, 160], "customers": [10, 35]},
+  "errors": {"mode": "random", "clean_probability": 0.25, "count": [3, 10], "interacting": {"C1": 0.4, "C2": 0.4}},
+  "traps": {"rate": 0.8}
+}

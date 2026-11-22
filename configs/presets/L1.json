@@ -1,0 +1,11 @@
+{
+  "config_version": "1.0",
+  "name": "L1-single-currency-no-traps",
+  "company": {"base_currency": "KZT", "n_foreign_currencies": [0, 0], "timezone": "+05:00",
+              "chart_template": "kz_standard", "period_kind": "month", "doc_offset_same_prob": 1.0},
+  "size": {"ledger_rows": [200, 300], "documents": [20, 40], "customers": [3, 8]},
+  "errors": {"mode": "random", "clean_probability": 0.2, "count": [1, 3],
+             "type_weights": {"duplicate_invoice": 1, "payment_allocation": 1, "fx_conversion": 0, "period_cutoff": 1},
+             "interacting": {"C1": 0, "C2": 0}},
+  "traps": {"rate": 0.0, "enabled": []}
+}

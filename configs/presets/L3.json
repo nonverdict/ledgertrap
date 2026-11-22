@@ -1,0 +1,7 @@
+{
+  "config_version": "1.0",
+  "name": "L3-default-mix",
+  "size": {"ledger_rows": [200, 800], "documents": [20, 120], "customers": [5, 25]},
+  "errors": {"mode": "random", "clean_probability": 0.25, "count": [1, 8], "interacting": {"C1": 0.2, "C2": 0.2}},
+  "traps": {"rate": 0.6}
+}

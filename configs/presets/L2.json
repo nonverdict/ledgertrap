@@ -1,0 +1,9 @@
+{
+  "config_version": "1.0",
+  "name": "L2-one-foreign-currency-few-traps",
+  "company": {"n_foreign_currencies": [1, 1], "timezone": ["+05:00", "+03:00"], "period_kind": "month",
+              "doc_offset_same_prob": 0.9},
+  "size": {"ledger_rows": [200, 500], "documents": [30, 70], "customers": [5, 12]},
+  "errors": {"mode": "random", "clean_probability": 0.25, "count": [1, 4], "interacting": {"C1": 0, "C2": 0}},
+  "traps": {"rate": 0.3, "enabled": ["L1", "L3", "L7", "L8", "L10", "L12"]}
+}
