@@ -1,0 +1,13 @@
+{
+  "config_version": "1.0",
+  "name": "dev",
+  "company": {
+    "base_currency": ["USD", "EUR"],
+    "timezone": ["-05:00", "+08:00"],
+    "chart_template": "alpha_codes",
+    "period_kind": "quarter",
+    "foreign_currencies": ["KZT", "CNY", "RUB", "GBP", "JPY", "KWD"]
+  },
+  "size": {"ledger_rows": [400, 1500], "documents": [60, 180], "customers": [10, 40]},
+  "errors": {"mode": "random", "clean_probability": 0.25, "count": [2, 12]}
+}
