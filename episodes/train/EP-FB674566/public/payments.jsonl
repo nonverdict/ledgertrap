@@ -1,0 +1,7 @@
+{"amount_minor":362970000,"currency":"RUB","doc_id":"D-6QKCN3UP","entity_id":"C-XLGDPT","invoice_refs":[{"amount_minor":362970000,"invoice_id":"SF/26/093280"}],"payment_id":"BK38TWC35F","timestamp":"2026-09-03T07:16:17+00:00"}
+{"amount_minor":811440,"currency":"JPY","doc_id":"D-ZSU2JSSZ","entity_id":"C-S5Z9XW","invoice_refs":[{"amount_minor":811440,"invoice_id":"SF/26/222556"}],"payment_id":"BKXRJQ6RW6","timestamp":"2026-09-11T17:42:48+01:00"}
+{"amount_minor":1014900,"currency":"EUR","doc_id":"D-2A9N4H3N","entity_id":"C-VNVE6Q","invoice_refs":[{"amount_minor":1014900,"invoice_id":"SF/26/692773"}],"payment_id":"BKY9YXN664","timestamp":"2026-09-17T17:52:37+01:00"}
+{"amount_minor":-1014900,"currency":"EUR","doc_id":"D-BMRSUMWF","entity_id":"C-VNVE6Q","invoice_refs":[{"amount_minor":-1014900,"invoice_id":"SF/26/711895"}],"payment_id":"BK6ND65K7A","timestamp":"2026-09-23T06:52:37+06:00"}
+{"amount_minor":753000,"currency":"KWD","doc_id":"D-5TR36HDC","entity_id":"C-U932ZH","invoice_refs":[{"amount_minor":753000,"invoice_id":"SF/26/425559"}],"payment_id":"BKJ42DKMSD","timestamp":"2026-09-24T10:07:30+01:00"}
+{"amount_minor":2716560,"currency":"JPY","doc_id":"D-EANP4FVH","entity_id":"C-S5Z9XW","invoice_refs":[{"amount_minor":2716560,"invoice_id":"SF/26/222556"}],"payment_id":"BKSXG7M8GS","timestamp":"2026-09-30T20:56:16-05:00"}
+{"amount_minor":32160000,"currency":"RUB","doc_id":"D-D4GFXKBV","entity_id":"C-8TH8YQ","invoice_refs":[{"amount_minor":32160000,"invoice_id":"SF/26/836741"}],"payment_id":"BKRYVZ3W4R","timestamp":"2026-10-04T14:18:28-02:00"}
