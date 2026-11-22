@@ -1,0 +1,31 @@
+{
+  "$id": "ledgertrap/fx_row.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "date": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "type": "string"
+    },
+    "rate": {
+      "pattern": "^\\d+(\\.\\d+)?$",
+      "type": "string"
+    },
+    "source_currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "target_currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "date",
+    "source_currency",
+    "target_currency",
+    "rate"
+  ],
+  "title": "fx.csv row",
+  "type": "object"
+}

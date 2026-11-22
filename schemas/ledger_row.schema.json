@@ -1,0 +1,64 @@
+{
+  "$id": "ledgertrap/ledger_row.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "account": {
+      "type": "string"
+    },
+    "credit_minor": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "debit_minor": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "entity_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "invoice_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "payment_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "row_id": {
+      "pattern": "^JE-[A-Z0-9]{8}$",
+      "type": "string"
+    },
+    "timestamp": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "row_id",
+    "timestamp",
+    "account",
+    "debit_minor",
+    "credit_minor",
+    "currency",
+    "entity_id",
+    "invoice_id",
+    "payment_id"
+  ],
+  "title": "ledger.csv row (as returned by tools; empty CSV cell = null)",
+  "type": "object"
+}

@@ -1,0 +1,107 @@
+{
+  "$id": "ledgertrap/observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "properties": {
+        "type": {
+          "const": "reset"
+        }
+      },
+      "required": [
+        "type",
+        "task",
+        "manifest",
+        "policy",
+        "tools",
+        "budget"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "properties": {
+            "code": {
+              "enum": [
+                "BAD_ACTION",
+                "UNKNOWN_TOOL",
+                "BAD_ARGS",
+                "UNKNOWN_TABLE",
+                "UNKNOWN_ID",
+                "BAD_CURSOR",
+                "CALC_ERROR",
+                "INTERNAL_ERROR",
+                "EPISODE_DONE"
+              ]
+            }
+          },
+          "required": [
+            "code",
+            "message"
+          ],
+          "type": "object"
+        },
+        "ok": {
+          "type": "boolean"
+        },
+        "result": {
+          "type": "object"
+        },
+        "steps_left": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "tool": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "type": {
+          "const": "tool_result"
+        }
+      },
+      "required": [
+        "type",
+        "tool",
+        "ok",
+        "steps_left"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "accepted": {
+          "type": "boolean"
+        },
+        "reason": {
+          "enum": [
+            "submitted",
+            "invalid_submission",
+            "max_steps",
+            "time_limit",
+            "policy_error"
+          ]
+        },
+        "steps_left": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "type": {
+          "const": "episode_end"
+        }
+      },
+      "required": [
+        "type",
+        "reason",
+        "accepted",
+        "steps_left"
+      ],
+      "type": "object"
+    }
+  ],
+  "title": "observation"
+}

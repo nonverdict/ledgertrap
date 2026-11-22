@@ -1,0 +1,58 @@
+{
+  "$id": "ledgertrap/findings.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "episode_id": {
+      "type": "string"
+    },
+    "findings": {
+      "items": {
+        "properties": {
+          "affected_ids": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "claimed_amount_minor": {
+            "type": "integer"
+          },
+          "currency": {
+            "type": "string"
+          },
+          "evidence_ids": {
+            "items": {
+              "type": "string"
+            },
+            "maxItems": 10,
+            "type": "array"
+          },
+          "explanation": {
+            "maxLength": 1000,
+            "type": "string"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type",
+          "affected_ids",
+          "claimed_amount_minor",
+          "currency",
+          "evidence_ids",
+          "explanation"
+        ],
+        "type": "object"
+      },
+      "maxItems": 30,
+      "type": "array"
+    }
+  },
+  "required": [
+    "episode_id",
+    "findings"
+  ],
+  "title": "findings.json (submit); unknown extra keys are ignored by the grader",
+  "type": "object"
+}

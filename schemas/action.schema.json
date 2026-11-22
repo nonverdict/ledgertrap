@@ -1,0 +1,26 @@
+{
+  "$id": "ledgertrap/action.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "args": {
+      "type": "object"
+    },
+    "tool": {
+      "enum": [
+        "list_records",
+        "get_record",
+        "get_document",
+        "calculator",
+        "submit"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "tool",
+    "args"
+  ],
+  "title": "step(action)",
+  "type": "object"
+}

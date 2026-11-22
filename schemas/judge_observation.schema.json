@@ -1,0 +1,77 @@
+{
+  "$id": "ledgertrap/judge_observation.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "oneOf": [
+    {
+      "additionalProperties": false,
+      "properties": {
+        "manifest": {
+          "type": "object"
+        },
+        "policy": {
+          "type": "object"
+        },
+        "remaining_steps": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "task": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "task",
+        "manifest",
+        "policy",
+        "remaining_steps"
+      ],
+      "type": "object"
+    },
+    {
+      "additionalProperties": false,
+      "properties": {
+        "error": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "additionalProperties": false,
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "code",
+                "message"
+              ],
+              "type": "object"
+            }
+          ]
+        },
+        "remaining_steps": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "result": {
+          "type": [
+            "object",
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "result",
+        "error",
+        "remaining_steps"
+      ],
+      "type": "object"
+    }
+  ],
+  "title": "judge_adapter: observation"
+}

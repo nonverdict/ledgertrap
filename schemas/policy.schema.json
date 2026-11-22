@@ -1,0 +1,45 @@
+{
+  "$id": "ledgertrap/policy.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "properties": {
+    "accounts": {
+      "type": "object"
+    },
+    "issue_types": {
+      "required": [
+        "duplicate_invoice",
+        "payment_allocation",
+        "fx_conversion",
+        "period_cutoff"
+      ],
+      "type": "object"
+    },
+    "posting_rules": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "rounding": {
+      "enum": [
+        "HALF_UP",
+        "HALF_EVEN"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "period",
+    "timezone",
+    "window_days",
+    "fx_rate_date",
+    "rounding",
+    "conversion",
+    "accounts",
+    "posting_rules",
+    "issue_types",
+    "submission"
+  ],
+  "title": "policy.json",
+  "type": "object"
+}

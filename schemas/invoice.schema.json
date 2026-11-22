@@ -1,0 +1,110 @@
+{
+  "$id": "ledgertrap/invoice.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "doc_id": {
+      "pattern": "^D-[A-Z0-9]{8}$",
+      "type": "string"
+    },
+    "due_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "entity_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": "string"
+    },
+    "invoice_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": "string"
+    },
+    "issued_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "invoice",
+        "credit_note"
+      ],
+      "type": "string"
+    },
+    "line_items": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_minor": {
+            "type": "integer"
+          },
+          "description": {
+            "type": "string"
+          },
+          "line_no": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "quantity": {
+            "minimum": 1,
+            "type": "integer"
+          },
+          "service_period_end": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+          },
+          "service_period_start": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+          },
+          "sku": {
+            "type": "string"
+          },
+          "unit_price_minor": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "line_no",
+          "sku",
+          "description",
+          "quantity",
+          "unit_price_minor",
+          "amount_minor",
+          "service_period_start",
+          "service_period_end"
+        ],
+        "type": "object"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "original_invoice_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "total_minor": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "doc_id",
+    "invoice_id",
+    "entity_id",
+    "issued_at",
+    "due_at",
+    "currency",
+    "total_minor",
+    "line_items",
+    "kind",
+    "original_invoice_id"
+  ],
+  "title": "invoices.jsonl record",
+  "type": "object"
+}

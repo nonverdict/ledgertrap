@@ -1,0 +1,68 @@
+{
+  "$id": "ledgertrap/score_result.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "f1": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "fn": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "fp": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "precision": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "recall": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "return": {
+      "maximum": 1,
+      "minimum": -1,
+      "type": "number"
+    },
+    "tp": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "tp",
+    "fp",
+    "fn",
+    "precision",
+    "recall",
+    "f1",
+    "return"
+  ],
+  "title": "judge_adapter: score_episode(...) result; invalid structure -> return -1, the rest null",
+  "type": "object"
+}

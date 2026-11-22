@@ -1,0 +1,64 @@
+{
+  "$id": "ledgertrap/payment.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "amount_minor": {
+      "type": "integer"
+    },
+    "currency": {
+      "pattern": "^[A-Z]{3}$",
+      "type": "string"
+    },
+    "doc_id": {
+      "pattern": "^D-[A-Z0-9]{8}$",
+      "type": "string"
+    },
+    "entity_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": "string"
+    },
+    "invoice_refs": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "amount_minor": {
+            "type": "integer"
+          },
+          "invoice_id": {
+            "pattern": "^[A-Z0-9/:\\-]+$",
+            "type": "string"
+          }
+        },
+        "required": [
+          "invoice_id",
+          "amount_minor"
+        ],
+        "type": "object"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "payment_id": {
+      "pattern": "^[A-Z0-9/:\\-]+$",
+      "type": "string"
+    },
+    "timestamp": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "doc_id",
+    "payment_id",
+    "timestamp",
+    "currency",
+    "amount_minor",
+    "invoice_refs",
+    "entity_id"
+  ],
+  "title": "payments.jsonl record",
+  "type": "object"
+}

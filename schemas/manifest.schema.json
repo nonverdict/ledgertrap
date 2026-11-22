@@ -1,0 +1,133 @@
+{
+  "$id": "ledgertrap/manifest.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "base_currency": {
+      "enum": [
+        "KZT",
+        "USD",
+        "EUR"
+      ],
+      "type": "string"
+    },
+    "company_name": {
+      "type": "string"
+    },
+    "config_version": {
+      "type": "string"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "documents": {
+          "maximum": 200,
+          "minimum": 20,
+          "type": "integer"
+        },
+        "fx": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "invoices": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "ledger": {
+          "maximum": 2000,
+          "minimum": 200,
+          "type": "integer"
+        },
+        "payments": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "ledger",
+        "invoices",
+        "payments",
+        "fx",
+        "documents"
+      ],
+      "type": "object"
+    },
+    "csv_null": {
+      "const": ""
+    },
+    "currencies": {
+      "additionalProperties": {
+        "enum": [
+          0,
+          2,
+          3
+        ],
+        "type": "integer"
+      },
+      "type": "object"
+    },
+    "episode_id": {
+      "pattern": "^EP-[A-Z0-9]{8}$",
+      "type": "string"
+    },
+    "export_end": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "export_start": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "generator_version": {
+      "type": "string"
+    },
+    "period_end": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "period_start": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    },
+    "rounding": {
+      "enum": [
+        "HALF_UP",
+        "HALF_EVEN"
+      ],
+      "type": "string"
+    },
+    "schema_version": {
+      "type": "string"
+    },
+    "timezone": {
+      "pattern": "^[+-]\\d{2}:\\d{2}$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "generator_version",
+    "config_version",
+    "episode_id",
+    "company_name",
+    "base_currency",
+    "currencies",
+    "timezone",
+    "period_start",
+    "period_end",
+    "export_start",
+    "export_end",
+    "counts",
+    "rounding",
+    "csv_null",
+    "files"
+  ],
+  "title": "manifest.json",
+  "type": "object"
+}
