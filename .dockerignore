@@ -1,0 +1,9 @@
+.git
+build
+_handoff
+**/__pycache__
+*.pyc
+CASE_FINTECH.md
+CONTEXT.md
+IDEA.md
+PROMPTS.md

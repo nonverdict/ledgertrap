@@ -1,0 +1,6 @@
+_handoff/
+build/
+runs/
+__pycache__/
+*.pyc
+.venv/
