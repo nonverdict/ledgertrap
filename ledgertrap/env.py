@@ -357,6 +357,13 @@ class RemoteGrader:
             self._p.wait(timeout=5)
         except Exception:  # noqa: BLE001
             self._p.kill()
+            self._p.wait()
+        for f in (self._p.stdin, self._p.stdout):
+            try:
+                if f is not None:
+                    f.close()
+            except OSError:
+                pass
 
     def __del__(self):
         try:

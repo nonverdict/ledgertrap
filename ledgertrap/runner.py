@@ -29,6 +29,16 @@ POLICY_ERROR = object()     # agent crashed, closed its output or wrote nothing
 POLICY_TIMEOUT = object()   # agent did not answer within the episode's remaining time
 
 
+
+def _close_pipes(p):
+    """Close a child's pipes quietly (a killed child leaves unflushed data that would raise at GC)."""
+    for f in (p.stdin, p.stdout):
+        try:
+            if f is not None:
+                f.close()
+        except OSError:
+            pass
+
 class SubprocessPolicy:
     """Agent in its own process. `cmd` is an argv list. The runner sets `timeout_s` to the episode's
     remaining time before every action; an agent that stays silent longer is killed (and restarted on the
@@ -45,6 +55,8 @@ class SubprocessPolicy:
         self._pending = None
 
     def _spawn(self):
+        if getattr(self, "p", None) is not None:
+            _close_pipes(self.p)
         env = {"PATH": os.environ.get("PATH", ""), "PYTHONPATH": ROOT, "PYTHONHASHSEED": "0", "LANG": "C.UTF-8"}
         self.p = subprocess.Popen(self.cmd, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=self._err, env=env,
                                   cwd=self.workdir, text=True, encoding="utf-8", bufsize=1)
@@ -64,6 +76,7 @@ class SubprocessPolicy:
             self.p.stdin.write(json.dumps(msg, ensure_ascii=False) + "\n")
             self.p.stdin.flush()
         except (BrokenPipeError, OSError):
+            _close_pipes(self.p)
             return POLICY_ERROR
         ready, _, _ = select.select([self.p.stdout], [], [], max(0.0, self.timeout_s))
         if not ready:
@@ -93,6 +106,8 @@ class SubprocessPolicy:
             self.p.wait(timeout=5)
         except Exception:  # noqa: BLE001
             self.p.kill()
+            self.p.wait()
+        _close_pipes(self.p)
         if self._err is not subprocess.DEVNULL:
             self._err.close()
         try:
