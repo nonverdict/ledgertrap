@@ -1,0 +1,24 @@
+{
+  "config_version": "1.0",
+  "name": "fx-wrong-rate",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "fx_conversion:wrong_rate": 1
+    }
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L5",
+      "L7",
+      "L10"
+    ]
+  },
+  "company": {
+    "n_foreign_currencies": [
+      1,
+      3
+    ]
+  }
+}

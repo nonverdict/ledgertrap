@@ -1,0 +1,19 @@
+{
+  "config_version": "1.0",
+  "name": "allocation-missing",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "payment_allocation:missing": 1
+    }
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L3",
+      "L8",
+      "L9",
+      "L12"
+    ]
+  }
+}

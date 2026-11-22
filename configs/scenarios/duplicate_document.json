@@ -1,0 +1,17 @@
+{
+  "config_version": "1.0",
+  "name": "duplicate-document",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "duplicate_invoice:document": 1
+    }
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L1",
+      "L2"
+    ]
+  }
+}

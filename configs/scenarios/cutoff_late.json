@@ -1,0 +1,18 @@
+{
+  "config_version": "1.0",
+  "name": "cutoff-late",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "period_cutoff:late": 1
+    }
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L6",
+      "L7",
+      "L11"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "config_version": "1.0",
+  "name": "allocation-wrong-invoice",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "payment_allocation:wrong_invoice": 1
+    }
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L3",
+      "L12"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "config_version": "1.0",
+  "name": "c1-boundary-fx-partial",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "C1": 1
+    }
+  },
+  "company": {
+    "n_foreign_currencies": [
+      1,
+      3
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "config_version": "1.0",
+  "name": "clean-split-payment",
+  "errors": {
+    "mode": "clean"
+  },
+  "traps": {
+    "rate": 1.0,
+    "enabled": [
+      "L3",
+      "L12"
+    ]
+  }
+}

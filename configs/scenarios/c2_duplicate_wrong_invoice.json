@@ -1,0 +1,10 @@
+{
+  "config_version": "1.0",
+  "name": "c2-duplicate-wrong-invoice",
+  "errors": {
+    "mode": "exact",
+    "exact": {
+      "C2": 1
+    }
+  }
+}
